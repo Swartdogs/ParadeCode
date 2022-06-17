@@ -22,13 +22,15 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Install ssh
+      run: "apt-get update && apt-get --yes --force-yes install ssh"
+    
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      with:
+        ssh-key: ${{ secrets.SUBMODULE_CONTENT_PULL_KEY }}
+        submodules: 'recursive'
     
-    # Update submodules
-    - name: Update submodules  
-      run: git submodule init && git submodule update
-
     # Grant execution permission for gradlew
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
