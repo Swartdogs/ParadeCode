@@ -8,6 +8,13 @@ public abstract class Drive extends SwartdogSubsystem
     protected Motor _left;
     protected Motor _right;
 
+    enum DriveMode {
+        Tank,
+        Arcade
+    };
+
+    private DriveMode _driveMode = DriveMode.Tank;
+
     public boolean isMoving()
     {
         return _left.get() != 0 || _right.get() != 0;
@@ -30,5 +37,29 @@ public abstract class Drive extends SwartdogSubsystem
         right /= scale;
 
         tankDrive(left, right);
+    }
+
+    // not a good solution
+    public void drive(double left, double right, double drive, double rotate)
+    {
+        if (_driveMode == DriveMode.Arcade)
+        {
+            arcadeDrive(drive, rotate);
+        }
+        
+        else
+        {
+            tankDrive(left, right);
+        }
+    }
+
+    public void changePreferredDriveMode()
+    {
+        _driveMode = (_driveMode == DriveMode.Tank) ? DriveMode.Arcade : DriveMode.Tank;
+    }
+
+    public DriveMode getPreferredDriveMode()
+    {
+        return _driveMode;
     }
 }
