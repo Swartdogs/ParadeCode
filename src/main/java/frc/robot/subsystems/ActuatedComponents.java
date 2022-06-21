@@ -4,7 +4,7 @@ import frc.robot.abstraction.SwartdogSubsystem;
 import frc.robot.abstraction.Enumerations.State;
 import frc.robot.abstraction.Switch.SettableSwitch;
 
-public class ActuatedComponents extends SwartdogSubsystem
+public abstract class ActuatedComponents extends SwartdogSubsystem
 {
     protected SettableSwitch _light;
     protected SettableSwitch _horn;
