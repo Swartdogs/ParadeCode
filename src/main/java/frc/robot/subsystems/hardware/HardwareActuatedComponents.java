@@ -1,13 +1,13 @@
 package frc.robot.subsystems.hardware;
 
-import frc.robot.abstraction.Switch.SettableSwitch;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import frc.robot.abstraction.Solenoid;
 import frc.robot.subsystems.ActuatedComponents;
 
 public class HardwareActuatedComponents extends ActuatedComponents
 {
     public HardwareActuatedComponents()
     {
-        _light = SettableSwitch.relay(1);
-        _horn  = SettableSwitch.relay(2);
+        _solenoid = Solenoid.solenoid(1, PneumaticsModuleType.CTREPCM, 1);
     }
 }

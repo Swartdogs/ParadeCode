@@ -21,6 +21,8 @@ public class CmdDriveWithController extends SwartdogCommand
         _leftXInput = leftXInput;
         _leftYInput = leftYInput;
         _rightYInput = rightYInput;
+
+        addRequirements(drive);
     }
 
     @Override

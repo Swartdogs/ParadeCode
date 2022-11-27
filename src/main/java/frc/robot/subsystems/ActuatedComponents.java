@@ -1,31 +1,19 @@
 package frc.robot.subsystems;
 
+import frc.robot.abstraction.Solenoid;
 import frc.robot.abstraction.SwartdogSubsystem;
-import frc.robot.abstraction.Enumerations.State;
-import frc.robot.abstraction.Switch.SettableSwitch;
 
 public abstract class ActuatedComponents extends SwartdogSubsystem
 {
-    protected SettableSwitch _light;
-    protected SettableSwitch _horn;
+    protected Solenoid _solenoid;
 
-    public void startLight()
+    public void extendCylinder()
     {
-        _light.set(State.On);
+        _solenoid.extend();
     }
 
-    public void stopLight()
+    public void retractCylinder()
     {
-        _light.set(State.Off);
-    }
-
-    public void startHorn()
-    {
-        _horn.set(State.On);
-    }
-
-    public void stopHorn()
-    {
-        _horn.set(State.Off);
+        _solenoid.retract();
     }
 }

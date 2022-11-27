@@ -3,27 +3,25 @@ package frc.robot.commands;
 import frc.robot.abstraction.SwartdogCommand;
 import frc.robot.subsystems.ActuatedComponents;
 
-public class CmdLightManual extends SwartdogCommand
+public class CmdCylinder extends SwartdogCommand
 {
     private ActuatedComponents _actuatedComponents;
 
-    public CmdLightManual(ActuatedComponents actuatedComponents)
+    public CmdCylinder(ActuatedComponents actuatedComponents)
     {
         _actuatedComponents = actuatedComponents;
-
-        addRequirements(_actuatedComponents);
     }
 
     @Override
     public void initialize()
     {
-        _actuatedComponents.startLight();
+        _actuatedComponents.extendCylinder();
     }
     
     @Override
     public void end(boolean interrupted)
     {
-        _actuatedComponents.stopLight();
+        _actuatedComponents.retractCylinder();
     }
 
     @Override

@@ -7,7 +7,7 @@ public class HardwareDrive extends Drive
 {
     public HardwareDrive()
     {
-        _left = Motor.compose(Motor.jaguar(0), Motor.jaguar(1));
-        _right = Motor.compose(Motor.jaguar(2), Motor.jaguar(3));
+        _left = Motor.compose(Motor.neo(1), Motor.neo(2));
+        _right = Motor.invert(Motor.compose(Motor.neo(3), Motor.neo(4)));
     }
 }
