@@ -1,31 +1,37 @@
 package frc.robot.subsystems;
 
-import frc.robot.abstraction.SwartdogSubsystem;
-import frc.robot.abstraction.Enumerations.State;
-import frc.robot.abstraction.Switch.SettableSwitch;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public abstract class ActuatedComponents extends SwartdogSubsystem
+public abstract class ActuatedComponents extends SubsystemBase
 {
-    protected SettableSwitch _light;
-    protected SettableSwitch _horn;
+    private Relay _light;
+    private Relay _horn;
+
+    public ActuatedComponents()
+    {
+        _light = new Relay(1);
+        _horn  = new Relay(2);
+    }
 
     public void startLight()
     {
-        _light.set(State.On);
+        _light.set(Value.kOn);
     }
 
     public void stopLight()
     {
-        _light.set(State.Off);
+        _light.set(Value.kOff);
     }
 
     public void startHorn()
     {
-        _horn.set(State.On);
+        _horn.set(Value.kOn);
     }
 
     public void stopHorn()
     {
-        _horn.set(State.Off);
+        _horn.set(Value.kOff);
     }
 }

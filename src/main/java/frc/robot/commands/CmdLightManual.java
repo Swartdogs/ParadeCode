@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
-import frc.robot.abstraction.SwartdogCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ActuatedComponents;
 
-public class CmdLightManual extends SwartdogCommand
+public class CmdLightManual extends CommandBase
 {
     private ActuatedComponents _actuatedComponents;
 

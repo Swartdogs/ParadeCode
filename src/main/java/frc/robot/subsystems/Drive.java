@@ -1,12 +1,14 @@
 package frc.robot.subsystems;
 
-import frc.robot.abstraction.Motor;
-import frc.robot.abstraction.SwartdogSubsystem;
+import edu.wpi.first.wpilibj.motorcontrol.Jaguar;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public abstract class Drive extends SwartdogSubsystem
+public abstract class Drive extends SubsystemBase
 {
-    protected Motor _left;
-    protected Motor _right;
+    private Jaguar _left1;
+    private Jaguar _left2;
+    private Jaguar _right1;
+    private Jaguar _right2;
 
     public enum DriveMode
     {
@@ -16,15 +18,25 @@ public abstract class Drive extends SwartdogSubsystem
 
     private DriveMode _driveMode = DriveMode.Tank;
 
+    public Drive()
+    {
+        _left1 = new Jaguar(0);
+        _left2 = new Jaguar(1);
+        _right1 = new Jaguar(2);
+        _right2 = new Jaguar(3);
+    }
+
     public boolean isMoving()
     {
-        return _left.get() != 0 || _right.get() != 0;
+        return _left1.get() != 0 || _right1.get() != 0;
     }
 
     public void tankDrive(double left, double right)
     {
-        _left.set(left);
-        _right.set(right);
+        _left1.set(left);
+        _left2.set(left);
+        _right1.set(right);
+        _right2.set(right);
     }
 
     public void arcadeDrive(double drive, double rotate)

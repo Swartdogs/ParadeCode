@@ -1,10 +1,10 @@
 package frc.robot.commands;
 
-import frc.robot.abstraction.SwartdogCommand;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ActuatedComponents;
 import frc.robot.subsystems.Drive;
 
-public class CmdLightDefault extends SwartdogCommand
+public class CmdLightDefault extends CommandBase
 {
     private Drive              _drive;
     private ActuatedComponents _actuatedComponents;
